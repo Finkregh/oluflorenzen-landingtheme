@@ -1,6 +1,403 @@
 {{ define "main" }}
-<article class="text-center text-gray-700">
-    <h1 class="font-serif font-thin text-5xl text-gray-500">{{ .Title }}</h1>
+
+<!-- prettier-ignore -->
+{{- $image_topbg := resources.Get "images/IMG_8577-cropped.jpg" -}}
+{{ $image_topbg = $image_topbg.Resize "q90 x600" }}
+
+<!-- prettier-ignore -->
+{{- $image_face := resources.Get "images/IMG_20180512_174108-cropped.jpg" -}}
+<!--IMG_20190602_204912-cropped-->
+{{ $image_face = $image_face.Resize "q90 150x" }}
+
+<!-- prettier-ignore -->
+{{- $image_face_fun := resources.Get "images/IMG_20201009_190552_106-cropped.jpg" -}}
+{{ $image_face_fun = $image_face_fun.Resize "q90 150x" }}
+<!-- <article class="text-center text-gray-700">
+    <h1 class="font-serif text-5xl font-thin text-gray-500">{{ .Title }}</h1>
     {{ .Content }}
-</article>
+    asdasdasd
+</article>-->
+
+<main class="profile-page">
+  <section class="relative block" style="height: 500px">
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style='background-image: url("{{ $image_topbg.Permalink }}");'
+    >
+      <!--
+            /static/20160508-_MG_1356-HDR-1-crop.jpg
+            https://blogs.mafia-server.net/schwarzblind/files/2016/11/wp-1479030148523-1024x759.jpg
+
+            https://blogs.mafia-server.net/schwarzblind/files/2016/05/20160508-_MG_1356-HDR-1.jpg
+            style='background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80");'>
+            -->
+      <span
+        id="blackOverlay"
+        class="absolute w-full h-full bg-black opacity-50"
+      ></span>
+    </div>
+    <div
+      class="absolute bottom-0 left-0 right-0 top-auto w-full overflow-hidden pointer-events-none"
+      style="height: 70px; transform: translateZ(0px)"
+    >
+      <svg
+        class="absolute bottom-0 overflow-hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        version="1.1"
+        viewBox="0 0 2560 100"
+        x="0"
+        y="0"
+      >
+        <polygon
+          class="text-gray-300 fill-current"
+          points="2560 0 2560 100 0 100"
+        ></polygon>
+      </svg>
+    </div>
+  </section>
+  <section class="relative py-16 bg-gray-300">
+    <div class="container px-4 mx-auto">
+      <div
+        class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
+      >
+        <div class="px-6">
+          <div class="flex flex-wrap justify-center">
+            <div
+              class="flex justify-center w-full h-12 px-4 lg:w-3/12 lg:order-2 md:h-10"
+            >
+              <div class="relative">
+                <img
+                  alt="..."
+                  src="{{ $image_face.Permalink }}"
+                  class="absolute h-auto -m-16 -ml-20 align-middle border-none rounded-full shadow-xl lg:-ml-16"
+                  style="max-width: 150px"
+                  onmouseover="this.src='{{ $image_face_fun.Permalink }}'"
+                  onmouseout="this.src='{{ $image_face.Permalink }}'"
+                />
+              </div>
+            </div>
+            <div class="w-full px-4 pt-4 lg:w-4/12 lg:order-3 lg:pt-0">
+              <div class="flex justify-center py-4 pt-8 lg:pt-4">
+                <div class="p-3 mr-4 text-center text-gray-700">
+                  <i class="mr-2 text-lg text-gray-500 fa fa-briefcase"></i>B1
+                  Systems GmbH
+                </div>
+              </div>
+            </div>
+            <div class="w-full px-4 lg:w-4/12 lg:order-1">
+              <div class="flex justify-center py-4 pt-2 pt-4 pt-8 md:pt-4">
+                <div class="p-3 mr-4 text-center text-gray-700">
+                  <i class="mr-2 text-lg text-gray-500 fa fa-heart"></i
+                  >OpenSource / Linux / helping people
+                </div>
+                <!--<div class="p-3 mr-4 text-center">
+                                    <span
+                                        class="block text-xl font-bold tracking-wide text-gray-700 uppercase">22</span><span
+                                        class="text-sm text-gray-500">Friends</span>
+                                </div>
+                                <div class="p-3 mr-4 text-center">
+                                    <span
+                                        class="block text-xl font-bold tracking-wide text-gray-700 uppercase">10</span><span
+                                        class="text-sm text-gray-500">Photos</span>
+                                </div>
+                                <div class="p-3 text-center lg:mr-4">
+                                    <span
+                                        class="block text-xl font-bold tracking-wide text-gray-700 uppercase">89</span><span
+                                        class="text-sm text-gray-500">Comments</span>
+                                </div>-->
+              </div>
+            </div>
+          </div>
+          <div class="mt-2 text-center lg:mt-8">
+            <h3
+              class="mb-2 text-4xl font-semibold leading-normal text-gray-800"
+            >
+              Oluf Lorenzen
+            </h3>
+            <div
+              class="mt-0 mb-2 text-sm font-bold leading-normal text-gray-500 uppercase"
+            >
+              <i class="mr-2 text-lg text-gray-500 fa fa-map-marker-alt"></i>
+              Hannover, Germany
+            </div>
+            <!--<div class="mt-10 mb-2 text-gray-700">
+                            <i class="mr-2 text-lg text-gray-500 fa fa-heart"></i>DevOps / Linux / Network / helping
+                            people
+                        </div>
+                        <div class="mb-2 text-gray-700">
+                            <i class="mr-2 text-lg text-gray-500 fa fa-briefcase"></i>B1 Systems GmbH
+                        </div>-->
+          </div>
+          <!--<div class="py-5 mt-5 text-center border-t border-gray-300">
+                        <div class="flex flex-wrap items-center justify-center">
+                            <ul class="flex flex-row items-center w-full px-4 justify-evenly lg:w-10/12 ">
+                                <li alt="Github - private"><a href="https://github.com/finkregh"><i class="pr-2 fa fa-github" aria-hidden="true"></i></a></li>
+
+                                <li alt="Github - work"><a href="https://github.com/lorenzen-b1"><i class="fa fa-github" aria-hidden="true"></i><i style="margin-left: -0.25rem" class="text-gray-500 fa fa-briefcase" aria-hidden="true"></i></a></li>
+
+
+                            </ul>
+
+
+                            </div>
+                        </div>
+                    </div>-->
+          <div class="pt-3 pb-6 mx-5 text-center border-t border-gray-300">
+            <!--py-10 mt-10 text-center border-t border-gray-300-->
+            <div class="flex flex-wrap justify-center">
+              <div class="w-full px-4 lg:w-10/12">
+                <!--<p class="mb-4 text-lg leading-relaxed text-gray-800">
+                                    {{ .Content }}
+                                </p>
+                                <a href="#pablo" class="font-normal text-pink-500">Show more</a>-->
+                <section class="text-gray-700 body-font">
+                  <div class="container px-5 py-4 mx-auto">
+                    <div class="flex flex-wrap -m-4">
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i class="pr-2 fa fa-linux" aria-hidden="true"></i
+                            >Linux
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            since Ubuntu 5.04 (2005); currently prefers Debian
+                            or Archlinux, would like to look into NixOS
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i class="pr-2 fa fa-python" aria-hidden="true"></i
+                            >Python, Bash
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            writes scripts for various tasks
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i
+                              class="pr-2 fa fa-hand-o-right"
+                              aria-hidden="true"
+                            ></i
+                            >Teamwork
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            prefers working in a team (of more-skilled
+                            colleagues) for more fun and higher quality
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i class="pr-2 fa fa-wrench" aria-hidden="true"></i
+                            >DevOps
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            likes working with (e.g.) programmers for the
+                            greater good
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i class="pr-2 fa fa-fire" aria-hidden="true"></i
+                            >Productivity
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            sees issues, challenges, places for potential, small
+                            tools with big impact
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i class="pr-2 fa fa-plug" aria-hidden="true"></i
+                            >Network
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            can read tcpdump, understands RFCs, likes SMTP
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i class="pr-2 fa fa-git" aria-hidden="true"></i>Git
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            usage (of course), teaching and helping colleagues
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i
+                              class="pr-2 fa fa-graduation-cap"
+                              aria-hidden="true"
+                            ></i
+                            >Teaching/Workshops
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            likes to spread knowledge, empowering people to do
+                            their own thing better
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i class="pr-2 fa fa-map" aria-hidden="true"></i
+                            >Tools of trade
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            vim, ip, kiwi, etcetc
+                            <a
+                              class="underline"
+                              href="/static/lorenzen-projects.pdf"
+                              >(projects ...)</a
+                            >
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i class="pr-2 fa fa-meh-o" aria-hidden="true"></i
+                            >Dont's
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            micromanagement, gatekeeping, ignorance, working
+                            alone
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4 text-left xl:w-1/4 md:w-1/3">
+                        <div class="">
+                          <h2
+                            class="mb-2 text-lg font-medium text-gray-900 title-font"
+                          >
+                            <i
+                              class="pr-2 fa fa-file-text-o"
+                              aria-hidden="true"
+                            ></i
+                            >CV
+                          </h2>
+                          <p class="text-base leading-relaxed">
+                            <a class="underline" href="/static/lorenzen-cv.pdf"
+                              >written in LaTeX</a
+                            >
+                          </p>
+                        </div>
+                      </div>
+
+                      <!--<div class="p-4 xl:w-1/4 md:w-1/3">
+                                            <div class="p-6 border border-gray-300 rounded-lg">
+                                            <div class="inline-flex items-center justify-center w-10 h-10 mb-4 text-indigo-500 bg-indigo-100 rounded-full">
+                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                                </svg>
+                                            </div>
+                                            <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">Shooting Stars</h2>
+                                            <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 xl:w-1/4 md:w-1/3">
+                                            <div class="p-6 border border-gray-300 rounded-lg">
+                                            <div class="inline-flex items-center justify-center w-10 h-10 mb-4 text-indigo-500 bg-indigo-100 rounded-full">
+                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                                <circle cx="6" cy="6" r="3"></circle>
+                                                <circle cx="6" cy="18" r="3"></circle>
+                                                <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                                                </svg>
+                                            </div>
+                                            <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">The Catalyzer</h2>
+                                            <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 xl:w-1/4 md:w-1/3">
+                                            <div class="p-6 border border-gray-300 rounded-lg">
+                                            <div class="inline-flex items-center justify-center w-10 h-10 mb-4 text-indigo-500 bg-indigo-100 rounded-full">
+                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                                <circle cx="12" cy="7" r="4"></circle>
+                                                </svg>
+                                            </div>
+                                            <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">Neptune</h2>
+                                            <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 xl:w-1/4 md:w-1/3">
+                                            <div class="p-6 border border-gray-300 rounded-lg">
+                                            <div class="inline-flex items-center justify-center w-10 h-10 mb-4 text-indigo-500 bg-indigo-100 rounded-full">
+                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
+                                                </svg>
+                                            </div>
+                                            <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">Melanchole</h2>
+                                            <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 xl:w-1/4 md:w-1/3">
+                                            <div class="p-6 border border-gray-300 rounded-lg">
+                                            <div class="inline-flex items-center justify-center w-10 h-10 mb-4 text-indigo-500 bg-indigo-100 rounded-full">
+                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                                                </svg>
+                                            </div>
+                                            <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">Bunker</h2>
+                                            <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 xl:w-1/4 md:w-1/3">
+                                            <div class="p-6 border border-gray-300 rounded-lg">
+                                            <div class="inline-flex items-center justify-center w-10 h-10 mb-4 text-indigo-500 bg-indigo-100 rounded-full">
+                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                                </svg>
+                                            </div>
+                                            <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">Ramona Falls</h2>
+                                            <p class="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                                            </div>
+                                        </div>-->
+                    </div>
+                    <!--<button class="flex px-8 py-2 mx-auto mt-16 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600">Button</button>-->
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 {{ end }}

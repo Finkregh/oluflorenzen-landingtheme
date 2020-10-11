@@ -1,5 +1,7 @@
 # Hugo Starter Theme with Tailwind CSS
 
+Upstream: https://github.com/dirkolbrich/hugo-theme-tailwindcss-starter
+
 Starter files for a Hugo theme with Tailwind CSS.
 
 - set up to use [Tailwind CSS](https://tailwindcss.com) - v1.6

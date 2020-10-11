@@ -1,4 +1,5 @@
-<header class="w-full px-4 pt-4">
+<header class="">
+    <!--w-full px-4 pt-4-->
     {{/*  CSS functionality for menu toggle  */}}
     <style type="text/css">
         input#nav-toggle:checked~label#show-button {
@@ -14,28 +15,28 @@
         }
     </style>
 
-    <nav class="flex items-center justify-between flex-wrap">
-        <a href="{{ .Site.Home.Permalink }}" class="flex items-center text-gray-700 font-bold">
+    <!--<nav class="flex flex-wrap items-center justify-between">
+        <a href="{{ .Site.Home.Permalink }}" class="flex items-center font-bold text-gray-700">
             {{ .Site.Title }}
         </a>
 
         <input id="nav-toggle" type=checkbox class="hidden">
         <label id="show-button" for="nav-toggle"
-            class="flex items-center block sm:hidden text-gray-500 hover:text-blue-500">
-            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            class="flex items-center block text-gray-500 sm:hidden hover:text-blue-500">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <title>Menu Open</title>
                 <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z" />
             </svg>
         </label>
         <label id="hide-button" for="nav-toggle" class="flex items-center hidden text-gray-700 hover:text-blue-500">
-            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <title>Menu Close</title>
                 <polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
                     transform="rotate(45 10 10)" />
             </svg>
         </label>
 
-        <ul id="nav-menu" class="sm:flex w-full sm:w-auto hidden sm:block mt-2 sm:mt-0 sm:space-x-2">
+        <ul id="nav-menu" class="hidden w-full mt-2 sm:flex sm:w-auto sm:block sm:mt-0 sm:space-x-2">
             {{ with .Site.GetPage "/about" }}
             <li>
                 <a href="{{ .Permalink }}" class="text-gray-500 hover:text-blue-400">{{ .Title }}</a>
@@ -47,5 +48,87 @@
             </li>
             {{ end }}
         </ul>
+    </nav>-->
+    <nav
+        class="absolute top-0 z-50 flex flex-wrap items-center justify-between w-full px-2 py-3 navbar-expand-lg">
+        <div
+            class="container flex flex-wrap items-center justify-between px-4 mx-auto">
+            <!--<div
+                class="relative flex justify-between w-full lg:w-auto lg:static lg:block lg:justify-start">
+                <a
+                    class="inline-block py-2 mr-4 text-sm font-bold leading-relaxed text-white uppercase whitespace-no-wrap"
+                    href="https://blogs.mafia-server.net/nur-bahnhof/">Blog</a>
+            </div>-->
+            <div
+                class="items-center flex-grow hidden bg-white lg:flex lg:bg-transparent lg:shadow-none"
+                id="example-collapse-navbar">
+                <ul class="flex flex-col mr-auto list-none lg:flex-row">
+                    <li class="flex items-center">
+                        <a
+                            class="flex items-center px-3 py-4 text-xs font-bold text-gray-800 uppercase lg:text-white lg:hover:text-gray-300 lg:py-2"
+                            href="https://github.com/finkregh"><i
+                                class="mr-2 text-lg text-gray-500 lg:text-gray-300 fa fa-github leading-lg"></i>Github</a>
+                    </li>
+                    <li class="flex items-center">
+                        <a
+                            class="flex items-center px-3 py-4 text-xs font-bold text-gray-800 uppercase lg:text-white lg:hover:text-gray-300 lg:py-2"
+                            href="https://github.com/lorenzen-b1"><i class="text-gray-400 fa fa-briefcase" aria-hidden="true"></i><i style="margin-left: -0.25rem" class="mr-1 fa fa-github" aria-hidden="true"></i>Github (work)</a>
+                    </li>
+                    <li class="flex items-center">
+                        <a
+                            class="flex items-center px-3 py-4 text-xs font-bold text-gray-800 uppercase lg:text-white lg:hover:text-gray-300 lg:py-2"
+                            href="https://pixelfed.de/finkregh"><i
+                                class="mr-2 text-lg text-gray-500 lg:text-gray-300 fa fa-camera-retro leading-lg"></i>Photoblog</a>
+                    </li>
+                    <li class="flex items-center">
+                        <a
+                            class="flex items-center px-3 py-4 text-xs font-bold text-gray-800 uppercase lg:text-white lg:hover:text-gray-300 lg:py-2"
+                            href="https://blogs.mafia-server.net/schwarzblind/"><i
+                                class="mr-2 text-lg text-gray-500 lg:text-gray-300 fa fa-camera-retro leading-lg"></i>Photoblog
+                            (old)</a>
+                    </li>
+                    <li class="flex items-center">
+                        <a
+                            class="flex items-center px-3 py-4 text-xs font-bold text-gray-800 uppercase lg:text-white lg:hover:text-gray-300 lg:py-2"
+                            href="https://blogs.mafia-server.net/nur-bahnhof/"><i
+                                class="mr-2 text-lg text-gray-500 lg:text-gray-300 fa fa-pencil leading-lg"></i>Blog (old)</a>
+                    </li>
+
+
+
+                </ul>
+                <!--<ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
+                    <li class="flex items-center">
+                        <a
+                            class="flex items-center px-3 py-4 text-xs font-bold text-gray-800 uppercase lg:text-white lg:hover:text-gray-300 lg:py-2"
+                            href="#pablo"><i
+                                class="text-lg text-gray-500 lg:text-gray-300 fa fa-facebook leading-lg "></i><span
+                                class="inline-block ml-2 lg:hidden">Share</span></a>
+                    </li>
+                    <li class="flex items-center">
+                        <a
+                            class="flex items-center px-3 py-4 text-xs font-bold text-gray-800 uppercase lg:text-white lg:hover:text-gray-300 lg:py-2"
+                            href="#pablo"><i
+                                class="text-lg text-gray-500 lg:text-gray-300 fa fa-twitter leading-lg "></i><span
+                                class="inline-block ml-2 lg:hidden">Tweet</span></a>
+                    </li>
+                    <li class="flex items-center">
+                        <a
+                            class="flex items-center px-3 py-4 text-xs font-bold text-gray-800 uppercase lg:text-white lg:hover:text-gray-300 lg:py-2"
+                            href="#pablo"><i
+                                class="text-lg text-gray-500 lg:text-gray-300 fa fa-github leading-lg "></i><span
+                                class="inline-block ml-2 lg:hidden">Star</span></a>
+                    </li>
+                    <li class="flex items-center">
+                        <button
+                            class="px-4 py-2 mb-3 ml-3 text-xs font-bold text-gray-800 uppercase bg-white rounded shadow outline-none active:bg-gray-100 hover:shadow-md focus:outline-none lg:mr-1 lg:mb-0"
+                            type="button"
+                            style="transition: all 0.15s ease 0s;">
+                            <i class="fa fa-arrow-alt-circle-down"></i> Download
+                        </button>
+                    </li>
+                </ul>-->
+            </div>
+        </div>
     </nav>
 </header>
